@@ -1,0 +1,6 @@
+like 0
+loser 1
+OK 2
+punch 3
+stop 4
+win 5
