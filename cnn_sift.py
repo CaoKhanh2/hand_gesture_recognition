@@ -1,6 +1,7 @@
 import copy
 import cv2
 import os
+import sys
 import time
 import numpy as np
 from keras.models import load_model
@@ -11,12 +12,19 @@ import read_file_txt
 
 
 class _model():
+    
+    
+    
     # Cac khai bao bien
     global model, score, gesture_names
+    
+    with open('./data/storage/model.txt', 'r') as file:
+    # Đọc toàn bộ nội dung của file
+        content = file.read()
 
     # Load model tu file da train
-    model = load_model('./model/cnn_model_VGG16_19.hdf5')
-
+    model = load_model('./model/'+str(content))
+    
     prediction = ''
 
     # gesture_names = {0: 'like',
@@ -25,8 +33,10 @@ class _model():
     #                 3: 'punch',
     #                 4: 'stop'}
 
-    label2id = read_file_txt.read_file('./gesture_hand.txt')
+    label2id = read_file_txt.read_file('./data/storage/gesture_hand.txt')
     gesture_names = {v: k for k, v in label2id.items()}
+    
+    
 
     # Ham de predict xem la ky tu gi
     def predict_rgb_image_vgg(self, image, model, gesture_names):

@@ -64,7 +64,7 @@ def main():
     # Load và chuyển đổi dữ liệu từ SIFT
     # X là danh sách các đặc trưng SIFT, y là nhãn tương ứng
 
-    label2id = read_file_txt.read_file('./gesture_hand.txt')
+    label2id = read_file_txt.read_file('./data/storage/gesture_hand.txt')
     num_class = len(label2id)
 
 
