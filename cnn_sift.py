@@ -13,13 +13,10 @@ import read_file_txt
 
 class _model():
     
-    
-    
     # Cac khai bao bien
     global model, score, gesture_names
     
     with open('./data/storage/model.txt', 'r') as file:
-    # Đọc toàn bộ nội dung của file
         content = file.read()
 
     # Load model tu file da train

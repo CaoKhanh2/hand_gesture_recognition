@@ -113,8 +113,8 @@ def main():
     model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
     history = model.fit(np.array(X_train_images), y_train_encoded, epochs=100, batch_size=32, validation_data=(np.array(X_test_images), y_test_encoded), callbacks=[early_stopping, model_checkpoint])
 
-
-    model.save('./model/cnn_model_VGG16.hdf5')  #
+    received_data = sys.argv[1]
+    model.save('./model/'+received_data)  #
 
     plt.figure(figsize=(12, 6))
 
